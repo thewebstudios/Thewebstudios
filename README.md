@@ -78,5 +78,5 @@ it replaces the blank placeholder automatically. Recommended: square images
 ## Updating content later
 
 - WhatsApp number: search `919897286952` across all files and replace.
-- Email placeholder: `hello@thewebstudios.in`.
+- Email placeholder: `thewebstudios69@gmail.com`.
 - Logo: replace `logo.png` with a new image of the same filename.
