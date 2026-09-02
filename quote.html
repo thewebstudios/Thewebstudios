@@ -76,6 +76,10 @@
     <div class="hero-blob b2"></div>
   </div>
   <div class="container">
+    <button class="back-btn" onclick="history.back()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"/></svg>
+      Back
+    </button>
     <div class="eyebrow-dark"><span class="dot"></span>Get Started</div>
     <h1>Let's build your website.</h1>
     <p>Tell us a bit about your business — we'll get back to you with a free quote within a day.</p>
@@ -107,8 +111,17 @@
     <div class="contact-form">
       <h3>Request a free quote</h3>
       <p class="form-sub">No payment, no obligation — just tell us what you need.</p>
+
+      <div class="step-indicator">
+        <div class="step-dot active" id="stepDot1"><span>1</span></div>
+        <div class="step-line" id="stepLine"></div>
+        <div class="step-dot" id="stepDot2"><span>2</span></div>
+      </div>
+
       <form id="enquiryForm">
-        <div class="form-row">
+
+        <!-- STEP 1 -->
+        <div class="form-step active" id="formStep1">
           <div class="form-group">
             <label for="fname">Your Name</label>
             <input type="text" id="fname" placeholder="Full name" required />
@@ -117,26 +130,37 @@
             <label for="fphone">Phone Number</label>
             <input type="tel" id="fphone" placeholder="10-digit mobile number" required />
           </div>
+          <button type="button" class="btn btn-primary" id="toStep2" style="width:100%;">
+            Continue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
-        <div class="form-group">
-          <label for="ftype">Project Type</label>
-          <select id="ftype">
-            <option>Business Website</option>
-            <option>E-Commerce Store</option>
-            <option>Landing Page</option>
-            <option>Website Redesign</option>
-            <option>Something Else</option>
-          </select>
+
+        <!-- STEP 2 -->
+        <div class="form-step" id="formStep2">
+          <p class="step-greeting" id="stepGreeting">Great! A couple more details, then we'll send this to WhatsApp.</p>
+          <div class="form-group">
+            <label for="ftype">Project Type</label>
+            <select id="ftype">
+              <option>Business Website</option>
+              <option>E-Commerce Store</option>
+              <option>Landing Page</option>
+              <option>Website Redesign</option>
+              <option>Something Else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Tell us about your project</label>
+            <textarea id="fmsg" placeholder="What does your business do, and what do you need on the website?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-whatsapp" style="width:100%;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2z"/></svg>
+            Send Enquiry on WhatsApp
+          </button>
+          <button type="button" class="back-step-link" id="toStep1">&larr; Back to details</button>
+          <p class="form-note">This opens WhatsApp with your details filled in — just hit send.</p>
         </div>
-        <div class="form-group">
-          <label for="fmsg">Tell us about your project</label>
-          <textarea id="fmsg" placeholder="What does your business do, and what do you need on the website?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-whatsapp">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2z"/></svg>
-          Send Enquiry on WhatsApp
-        </button>
-        <p class="form-note">This opens WhatsApp with your details filled in — just hit send.</p>
+
       </form>
     </div>
   </div>

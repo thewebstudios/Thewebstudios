@@ -767,9 +767,34 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-align: center;
 }
 .page-header .container { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
-.page-header h1 { font-size: clamp(30px, 5vw, 46px); color: #fff; }
-.page-header p { margin-top: 16px; font-size: 16.5px; color: rgba(255,255,255,0.75); }
+.page-header h1 { font-size: clamp(30px, 5vw, 46px); color: #fff; animation: fadeUp 0.8s var(--ease) 0.1s both; }
+.page-header p { margin-top: 16px; font-size: 16.5px; color: rgba(255,255,255,0.75); animation: fadeUp 0.8s var(--ease) 0.18s both; }
+.page-header .eyebrow-dark { animation: fadeUp 0.8s var(--ease) both; }
+.page-header .fact-row { animation: fadeUp 0.8s var(--ease) 0.26s both; }
 @media (max-width: 720px) { .page-header { padding: 130px 0 60px; } }
+
+.back-btn {
+  position: absolute;
+  top: -6px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 9px 16px 9px 12px;
+  border-radius: 100px;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+  animation: fadeUp 0.7s var(--ease) both;
+}
+.back-btn svg { width: 15px; height: 15px; }
+.back-btn:hover { background: rgba(255,255,255,0.18); transform: translateX(-3px); }
+@media (max-width: 560px) {
+  .back-btn { position: static; margin-bottom: 20px; display: inline-flex; }
+}
 
 .fact-row {
   display: flex;
@@ -1178,6 +1203,74 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .illustration-grid { grid-template-columns: 1fr; }
   .illustration-copy p { max-width: none; }
 }
+
+/* ============================================================
+   Gallery (Mathura / Vrindavan / Agra)
+   ============================================================ */
+.gallery-group { margin-bottom: 50px; }
+.gallery-group:last-child { margin-bottom: 0; }
+.gallery-city {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gallery-city::before {
+  content: "";
+  width: 28px; height: 3px;
+  background: var(--grad-brand);
+  border-radius: 2px;
+  display: inline-block;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  border: 1.5px solid var(--line);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-item.img-missing img { display: none; }
+.gallery-label {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  background: repeating-linear-gradient(45deg, var(--bg-soft), var(--bg-soft) 10px, #eceefa 10px, #eceefa 20px);
+  border: 1.5px dashed var(--line);
+  border-radius: 12px;
+  margin: -1.5px;
+}
+.gallery-item.img-missing .gallery-label { display: flex; }
+
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .gallery-city { font-size: 19px; }
+}
+
 .testi-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1322,6 +1415,66 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: #fff;
 }
 .form-group textarea { resize: vertical; min-height: 90px; }
+
+/* ---- Two-step quote form ---- */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.step-dot {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1.5px solid var(--line);
+  color: var(--ink-faint);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  font-family: var(--font-display);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+.step-dot.active { background: var(--grad-brand); border-color: transparent; color: #fff; }
+.step-line {
+  width: 46px; height: 2px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.step-line::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--grad-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+.step-line.filled::after { transform: scaleX(1); }
+
+.form-step {
+  display: none;
+  animation: stepIn 0.45s var(--ease) both;
+}
+.form-step.active { display: block; }
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.step-greeting { font-size: 14px; color: var(--ink-soft); margin-bottom: 18px; }
+.btn-primary svg { width: 16px; height: 16px; }
+.back-step-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  margin-top: 12px;
+  padding: 8px;
+  transition: color 0.25s;
+}
+.back-step-link:hover { color: var(--indigo); }
 .contact-form .btn-whatsapp { width: 100%; margin-top: 6px; }
 .form-note { font-size: 12px; color: var(--ink-faint); text-align: center; margin-top: 14px; }
 

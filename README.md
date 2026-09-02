@@ -9,7 +9,8 @@ Just upload every file below as-is.
 index.html      (home page)
 work.html       (Examples / portfolio page)
 project.html    (project case-study page, opened from Examples)
-quote.html      (Get a Quote / enquiry form page)
+pricing.html    (Pricing page)
+quote.html      (Get a Quote / enquiry form page — 2-step form)
 style.css
 script.js
 logo.png
@@ -32,13 +33,35 @@ README.md
 
 ## How the pages connect
 
-- `index.html` → clicking "Get a Quote" opens `quote.html`. Clicking a project's
-  arrow button, or "View All Examples", opens `work.html` / `project.html`.
+- `index.html` → "Get Started" opens WhatsApp directly. "See Our Work" opens
+  `work.html`. "View Pricing" opens `pricing.html`. "Get a Quote" (nav) opens
+  `quote.html`.
 - `work.html` → each project card's arrow button opens `project.html?type=...`
-  (restaurant, realestate, fashion, clinic, salon, gym) which changes the
-  title/description on that page automatically via `script.js`.
-- `project.html` → shows an animated step-by-step process (Requirement
-  Gathering → First Look → Required Changes → Payment → Launch).
+  (restaurant, realestate, fashion, clinic, salon, gym).
+- `project.html` → shows an animated step-by-step process, plus a Back button.
+- `pricing.html` → the 3 pricing plans, plus a Back button.
+- `quote.html` → a 2-step enquiry form: Step 1 (name + phone), Step 2
+  (project type + message), then opens WhatsApp with everything filled in.
+
+Every sub-page (`work.html`, `project.html`, `pricing.html`, `quote.html`)
+has a **Back** button at the top-left that returns to whichever page you
+came from.
+
+## Adding gallery photos
+
+The homepage has a **Gallery** section (Mathura / Vrindavan / Agra) with
+empty placeholder slots. To add a real photo, just upload an image with the
+exact matching filename next to `index.html`:
+
+```
+design-01.jpg ... design-08.jpg   → Mathura (8 slots)
+design-09.jpg ... design-12.jpg   → Vrindavan (4 slots)
+design-13.jpg ... design-16.jpg   → Agra (4 slots)
+```
+
+No code changes needed — as soon as a file with that exact name is uploaded,
+it replaces the blank placeholder automatically. Recommended: square images
+(1:1), at least 600×600px, saved as `.jpg`.
 
 ## Updating content later
 

@@ -135,6 +135,46 @@ document.addEventListener("DOMContentLoaded", () => {
     if (featEl) featEl.textContent = data.feature;
   }
 
+  // ---- Two-step quote form navigation ----
+  const toStep2Btn = document.getElementById("toStep2");
+  const toStep1Btn = document.getElementById("toStep1");
+  const formStep1 = document.getElementById("formStep1");
+  const formStep2 = document.getElementById("formStep2");
+  const stepDot1 = document.getElementById("stepDot1");
+  const stepDot2 = document.getElementById("stepDot2");
+  const stepLine = document.getElementById("stepLine");
+  const stepGreeting = document.getElementById("stepGreeting");
+
+  if (toStep2Btn) {
+    toStep2Btn.addEventListener("click", () => {
+      const nameEl = document.getElementById("fname");
+      const phoneEl = document.getElementById("fphone");
+      if (!nameEl.value.trim() || !phoneEl.value.trim()) {
+        if (!nameEl.value.trim()) nameEl.focus();
+        else phoneEl.focus();
+        return;
+      }
+      formStep1.classList.remove("active");
+      formStep2.classList.add("active");
+      stepDot1.classList.remove("active");
+      stepDot2.classList.add("active");
+      stepLine.classList.add("filled");
+      if (stepGreeting) {
+        const firstName = nameEl.value.trim().split(" ")[0];
+        stepGreeting.textContent = `Thanks, ${firstName}! A couple more details, then we'll send this to WhatsApp.`;
+      }
+    });
+  }
+
+  if (toStep1Btn) {
+    toStep1Btn.addEventListener("click", () => {
+      formStep2.classList.remove("active");
+      formStep1.classList.add("active");
+      stepDot2.classList.remove("active");
+      stepLine.classList.remove("filled");
+    });
+  }
+
   // ---- Enquiry form -> WhatsApp ----
   const form = document.getElementById("enquiryForm");
   if (form) {
