@@ -9,11 +9,17 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<!-- ============ PAGE LOADER ============ -->
+<div class="page-loader" id="pageLoader">
+  <img src="logo.png" alt="Loading" class="loader-logo" />
+  <span class="loader-text">Loading<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></span>
+</div>
 
 <!-- ============ TOP BAR ============ -->
 <div class="topbar" id="topbar">
@@ -37,7 +43,7 @@
   <div class="container">
     <a href="index.html" class="logo">
       <img src="logo.png" alt="TheWebStudios logo" class="mark-img" />
-      <span class="logo-prefix">the</span><span class="accent-dot">web</span><span class="logo-suffix">studios</span>
+      <span class="brand-navy">THE WEB</span> <span class="brand-gold">STUDIOS</span>
     </a>
     <nav class="nav-links">
       <a href="index.html#services">Services</a>
@@ -83,6 +89,66 @@
     <div class="eyebrow-dark"><span class="dot"></span>Our Portfolio</div>
     <h1>Examples of websites we build.</h1>
     <p>Tap any project to see how we approach it — from first sketch to final launch.</p>
+  </div>
+</section>
+
+<!-- ============ LIVE WEBSITE PREVIEWS (auto-sliding) ============ -->
+<section class="section" style="padding-bottom:20px;">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Live Website Previews</div>
+      <h2>Real websites we've built for clients.</h2>
+      <p>A few full-page previews — swipe stops automatically on hover.</p>
+    </div>
+  </div>
+
+  <div class="examples-slider-wrap">
+    <div class="examples-slider-track">
+
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-01.jpg" alt="Example website 1" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-01</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-02.jpg" alt="Example website 2" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-02</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-03.jpg" alt="Example website 3" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-03</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-04.jpg" alt="Example website 4" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-04</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-05.jpg" alt="Example website 5" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-05</span></div>
+      </div>
+
+      <!-- duplicate set for seamless loop -->
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-01.jpg" alt="Example website 1" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-01</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-02.jpg" alt="Example website 2" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-02</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-03.jpg" alt="Example website 3" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-03</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-04.jpg" alt="Example website 4" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-04</span></div>
+      </div>
+      <div class="example-card">
+        <div class="example-bar"><span></span><span></span><span></span></div>
+        <div class="example-img-wrap"><img src="example-05.jpg" alt="Example website 5" onerror="this.parentElement.classList.add('img-missing')" /><span class="example-label">example-05</span></div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -170,7 +236,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="logo.png" alt="TheWebStudios logo" class="mark-img" /><span class="logo-prefix">the</span><span class="accent-dot">web</span><span class="logo-suffix">studios</span></a>
+        <a href="index.html" class="logo"><img src="logo.png" alt="TheWebStudios logo" class="mark-img" /><span class="brand-navy">THE WEB</span> <span class="brand-gold">STUDIOS</span></a>
         <p>We design and build professional websites for businesses that want to grow online — fast, affordable, and built to convert.</p>
         <div class="footer-social">
           <a href="https://wa.me/919897286952" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2z"/></svg></a>

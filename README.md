@@ -47,6 +47,18 @@ Every sub-page (`work.html`, `project.html`, `pricing.html`, `quote.html`)
 has a **Back** button at the top-left that returns to whichever page you
 came from.
 
+## Adding live website preview screenshots (work.html)
+
+The Examples page has an auto-sliding strip of 5 placeholder website
+previews. To add a real screenshot, upload an image with the exact matching
+filename next to `work.html`:
+
+```
+example-01.jpg ... example-05.jpg   → 5 sliding preview slots
+```
+
+Recommended: landscape screenshots (16:10), at least 1200×750px, `.jpg`.
+
 ## Adding gallery photos
 
 The homepage has a **Gallery** section (Mathura / Vrindavan / Agra) with

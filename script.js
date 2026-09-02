@@ -2,6 +2,17 @@
 // TheWebStudios — Interactions
 // ============================================================
 
+// ---- Page loader ----
+window.addEventListener("load", () => {
+  const loader = document.getElementById("pageLoader");
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add("loader-hide");
+      setTimeout(() => loader.remove(), 600);
+    }, 500);
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   // Footer year
   const yearEl = document.getElementById("year");
