@@ -9,11 +9,17 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<!-- ============ PAGE LOADER ============ -->
+<div class="page-loader" id="pageLoader">
+  <img src="logo.png" alt="Loading" class="loader-logo" />
+  <span class="loader-text">Loading<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></span>
+</div>
 
 <!-- ============ TOP BAR ============ -->
 <div class="topbar" id="topbar">
@@ -349,6 +355,52 @@
   </div>
 </section>
 
+<!-- ============ GALLERY ============ -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Our Gallery</div>
+      <h2>A look at our <span class="gallery-hl">work</span> across locations.</h2>
+      <p>Browse photos from our recent projects, city by city.</p>
+    </div>
+
+    <div class="gallery-group reveal">
+      <h3 class="gallery-city">Mathura</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="design-01.jpg" alt="Mathura design 01" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-01</span></div>
+        <div class="gallery-item"><img src="design-02.jpg" alt="Mathura design 02" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-02</span></div>
+        <div class="gallery-item"><img src="design-03.jpg" alt="Mathura design 03" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-03</span></div>
+        <div class="gallery-item"><img src="design-04.jpg" alt="Mathura design 04" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-04</span></div>
+        <div class="gallery-item"><img src="design-05.jpg" alt="Mathura design 05" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-05</span></div>
+        <div class="gallery-item"><img src="design-06.jpg" alt="Mathura design 06" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-06</span></div>
+        <div class="gallery-item"><img src="design-07.jpg" alt="Mathura design 07" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-07</span></div>
+        <div class="gallery-item"><img src="design-08.jpg" alt="Mathura design 08" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-08</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-group reveal">
+      <h3 class="gallery-city">Vrindavan</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="design-09.jpg" alt="Vrindavan design 09" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-09</span></div>
+        <div class="gallery-item"><img src="design-10.jpg" alt="Vrindavan design 10" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-10</span></div>
+        <div class="gallery-item"><img src="design-11.jpg" alt="Vrindavan design 11" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-11</span></div>
+        <div class="gallery-item"><img src="design-12.jpg" alt="Vrindavan design 12" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-12</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-group reveal">
+      <h3 class="gallery-city">Agra</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="design-13.jpg" alt="Agra design 13" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-13</span></div>
+        <div class="gallery-item"><img src="design-14.jpg" alt="Agra design 14" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-14</span></div>
+        <div class="gallery-item"><img src="design-15.jpg" alt="Agra design 15" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-15</span></div>
+        <div class="gallery-item"><img src="design-16.jpg" alt="Agra design 16" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-16</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ============ LIVE DEMO ============ -->
 <section class="section demo-section">
   <div class="container">
@@ -386,6 +438,87 @@
         <div class="demo-cursor">
           <svg class="arrow" viewBox="0 0 22 26" fill="none"><path d="M1.5 1.5 1.5 20.5 6.5 16.5 9.5 23.5 12.5 22 9.5 15 15.5 15 1.5 1.5Z" fill="#fff" stroke="#12121a" stroke-width="1.4" stroke-linejoin="round"/></svg>
           <span class="ripple"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACKED DESIGNS ============ -->
+<section class="section stack-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Multiple Designs, One Studio</div>
+      <h2>Different looks, same solid foundation.</h2>
+      <p>Every website we build is uniquely designed for the business — here's a glimpse of the range.</p>
+    </div>
+
+    <div class="stack-wrap">
+      <div class="stack-card card-1 reveal">
+        <div class="stack-bar"><span></span><span></span><span></span></div>
+        <div class="stack-body" style="background:linear-gradient(160deg,#e6f2ff,#ffffff);">
+          <div class="stack-line" style="width:60%;background:#1d6fd6;"></div>
+          <div class="stack-line" style="width:40%;"></div>
+          <div class="stack-block" style="background:#1d6fd6; opacity:0.18;"></div>
+        </div>
+      </div>
+
+      <div class="stack-card card-2 reveal reveal-delay-1">
+        <div class="stack-bar"><span></span><span></span><span></span></div>
+        <div class="stack-body" style="background:linear-gradient(160deg,#eef0fb,#ffffff);">
+          <div class="stack-line" style="width:70%;background:var(--indigo);"></div>
+          <div class="stack-line" style="width:45%;"></div>
+          <div class="stack-cta"></div>
+          <div class="stack-grid-mini">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-card card-3 reveal reveal-delay-2">
+        <div class="stack-bar"><span></span><span></span><span></span></div>
+        <div class="stack-body" style="background:linear-gradient(160deg,#fff6e0,#ffffff);">
+          <div class="stack-line" style="width:55%;background:var(--gold);"></div>
+          <div class="stack-line" style="width:38%;"></div>
+          <div class="stack-block" style="background:var(--gold); opacity:0.2;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACKED SHOWCASE ============ -->
+<section class="section stack-showcase-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Multiple Designs, One Vision</div>
+      <h2>Different looks, same professional quality.</h2>
+      <p>Every business gets a website styled around its own brand — here's a glimpse of the range.</p>
+    </div>
+
+    <div class="stack-showcase">
+      <div class="stack-card reveal card-1">
+        <div class="stack-card-bar"><span></span><span></span><span></span></div>
+        <div class="stack-card-body" style="background:linear-gradient(135deg,#241a5e,#4c2a91);">
+          <div class="stack-card-line w1"></div>
+          <div class="stack-card-line w2"></div>
+          <div class="stack-card-btn" style="background:var(--gold);"></div>
+        </div>
+      </div>
+      <div class="stack-card reveal reveal-delay-1 card-2">
+        <div class="stack-card-bar"><span></span><span></span><span></span></div>
+        <div class="stack-card-body" style="background:linear-gradient(135deg,#fff4e0,#ffe1b0);">
+          <div class="stack-card-line w1" style="background:rgba(18,18,26,0.35);"></div>
+          <div class="stack-card-line w2" style="background:rgba(18,18,26,0.2);"></div>
+          <div class="stack-card-btn" style="background:var(--indigo);"></div>
+        </div>
+      </div>
+      <div class="stack-card reveal reveal-delay-2 card-3">
+        <div class="stack-card-bar"><span></span><span></span><span></span></div>
+        <div class="stack-card-body" style="background:linear-gradient(135deg,#4338ca,#7c3aed);">
+          <div class="stack-card-line w1"></div>
+          <div class="stack-card-line w2"></div>
+          <div class="stack-card-btn" style="background:#fff; color:var(--indigo);"></div>
         </div>
       </div>
     </div>
@@ -555,52 +688,6 @@
   </div>
 </section>
 
-<!-- ============ GALLERY ============ -->
-<section class="section gallery-section" id="gallery">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="eyebrow">Our Gallery</div>
-      <h2>A look at our work across locations.</h2>
-      <p>Browse photos from our recent projects, city by city.</p>
-    </div>
-
-    <div class="gallery-group reveal">
-      <h3 class="gallery-city">Mathura</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="design-01.jpg" alt="Mathura design 01" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-01</span></div>
-        <div class="gallery-item"><img src="design-02.jpg" alt="Mathura design 02" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-02</span></div>
-        <div class="gallery-item"><img src="design-03.jpg" alt="Mathura design 03" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-03</span></div>
-        <div class="gallery-item"><img src="design-04.jpg" alt="Mathura design 04" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-04</span></div>
-        <div class="gallery-item"><img src="design-05.jpg" alt="Mathura design 05" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-05</span></div>
-        <div class="gallery-item"><img src="design-06.jpg" alt="Mathura design 06" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-06</span></div>
-        <div class="gallery-item"><img src="design-07.jpg" alt="Mathura design 07" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-07</span></div>
-        <div class="gallery-item"><img src="design-08.jpg" alt="Mathura design 08" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-08</span></div>
-      </div>
-    </div>
-
-    <div class="gallery-group reveal">
-      <h3 class="gallery-city">Vrindavan</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="design-09.jpg" alt="Vrindavan design 09" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-09</span></div>
-        <div class="gallery-item"><img src="design-10.jpg" alt="Vrindavan design 10" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-10</span></div>
-        <div class="gallery-item"><img src="design-11.jpg" alt="Vrindavan design 11" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-11</span></div>
-        <div class="gallery-item"><img src="design-12.jpg" alt="Vrindavan design 12" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-12</span></div>
-      </div>
-    </div>
-
-    <div class="gallery-group reveal">
-      <h3 class="gallery-city">Agra</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="design-13.jpg" alt="Agra design 13" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-13</span></div>
-        <div class="gallery-item"><img src="design-14.jpg" alt="Agra design 14" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-14</span></div>
-        <div class="gallery-item"><img src="design-15.jpg" alt="Agra design 15" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-15</span></div>
-        <div class="gallery-item"><img src="design-16.jpg" alt="Agra design 16" onerror="this.parentElement.classList.add('img-missing')" /><span class="gallery-label">design-16</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ============ CONTACT ============ -->
 <section class="section contact-section" id="contact">
   <div class="container">
@@ -678,6 +765,22 @@
 
       </form>
     </div>
+  </div>
+</section>
+
+<!-- ============ BRAND REVEAL ============ -->
+<section class="brand-reveal-section">
+  <div class="hero-blobs">
+    <div class="hero-blob b1"></div>
+    <div class="hero-blob b2"></div>
+  </div>
+  <div class="container brand-reveal-inner">
+    <div class="brand-reveal">
+      <span class="brand-word reveal">The</span>
+      <span class="brand-word accent reveal reveal-delay-1">Web</span>
+      <span class="brand-word reveal reveal-delay-2">Studios</span>
+    </div>
+    <p class="brand-reveal-sub reveal reveal-delay-3">Crafting premium, professional websites — one business at a time.</p>
   </div>
 </section>
 
