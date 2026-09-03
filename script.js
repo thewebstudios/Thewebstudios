@@ -215,24 +215,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ---- Side slide-in widget ----
+  // ---- Side slide-in widget (home page only, shows once ever) ----
   const sideWidget = document.getElementById("sideWidget");
   const sideWidgetClose = document.getElementById("sideWidgetClose");
   if (sideWidget) {
-    const showTimer = setTimeout(() => {
-      sideWidget.classList.add("show");
-    }, 2500);
-
-    if (sideWidgetClose) {
-      sideWidgetClose.addEventListener("click", () => {
-        clearTimeout(showTimer);
-        sideWidget.classList.remove("show");
-      });
+    let alreadySeen = false;
+    try {
+      alreadySeen = localStorage.getItem("tws_side_widget_seen") === "1";
+    } catch (err) {
+      alreadySeen = false;
     }
 
-    // auto-hide after a while so it doesn't linger forever
-    setTimeout(() => {
-      sideWidget.classList.remove("show");
-    }, 14000);
+    if (!alreadySeen) {
+      const markSeen = () => {
+        try { localStorage.setItem("tws_side_widget_seen", "1"); } catch (err) {}
+      };
+
+      const showTimer = setTimeout(() => {
+        sideWidget.classList.add("show");
+        markSeen();
+      }, 2500);
+
+      if (sideWidgetClose) {
+        sideWidgetClose.addEventListener("click", () => {
+          clearTimeout(showTimer);
+          sideWidget.classList.remove("show");
+          markSeen();
+        });
+      }
+
+      // auto-hide after a while so it doesn't linger forever
+      setTimeout(() => {
+        sideWidget.classList.remove("show");
+      }, 14000);
+    }
   }
 });
