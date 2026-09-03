@@ -338,6 +338,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   align-items: center;
   gap: 11px;
+  animation: logoDropIn 0.9s var(--ease) 0.15s both;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(18px, 5vw, 25px);
@@ -566,6 +567,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes logoDropIn {
+  from { opacity: 0; transform: translateY(-18px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* --- Photo strip: floating cards straddling hero / next section --- */
@@ -863,6 +869,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .stack-card-line.w1 { width: 75%; }
 .stack-card-line.w2 { width: 50%; }
 .stack-card-btn { width: 90px; height: 26px; border-radius: 100px; margin-top: 16px; }
+
+.stack-card-float { animation: floatSmall 4.5s ease-in-out infinite; }
+.stack-card.card-1 .stack-card-float { animation-delay: 0s; }
+.stack-card.card-2 .stack-card-float { animation-delay: -1.5s; }
+.stack-card.card-3 .stack-card-float { animation-delay: -3s; }
+
+.mock-nav-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.mock-nav-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mock-nav-row span { width: 22px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.3); }
+
+.mock-photo { margin-top: 16px; border-radius: 10px; overflow: hidden; }
+.mock-photo-dark { background: rgba(255,255,255,0.06); }
+.mock-photo svg { width: 100%; height: 70px; display: block; }
+
+.mock-grid { display: flex; gap: 10px; margin-top: 16px; }
+.mock-grid-item { flex: 1; border-radius: 8px; overflow: hidden; }
+.mock-grid-item svg { width: 100%; height: 44px; display: block; }
+
+.mock-stats { display: flex; gap: 14px; margin-top: 18px; margin-bottom: 4px; }
+.mock-stat { flex: 1; text-align: center; background: rgba(255,255,255,0.12); border-radius: 10px; padding: 10px 4px; }
+.mock-stat-num { display: block; font-family: var(--font-display); font-weight: 800; font-size: 17px; color: #fff; }
+.mock-stat-label { display: block; font-size: 10px; color: rgba(255,255,255,0.7); margin-top: 2px; }
 
 /* Off-screen entrance positions */
 .stack-card.card-1 { transform: translate(-180%, -50%) rotate(-14deg); z-index: 1; }
@@ -1948,3 +1976,70 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .back-to-top svg { width: 18px; height: 18px; }
 @media (max-width: 560px) { .back-to-top { display: none; } }
+
+/* ============================================================
+   Side slide-in widget
+   ============================================================ */
+.side-widget {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 850;
+  transform: translate(-115%, -50%);
+  transition: transform 0.6s var(--ease);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: none;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  box-shadow: var(--shadow-md);
+  padding: 22px 22px 22px 18px;
+  width: 200px;
+  text-align: center;
+}
+.side-widget.show { transform: translate(0, -50%); }
+.side-widget-close {
+  position: absolute;
+  top: 8px; right: 10px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--ink-faint);
+  font-size: 15px;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.side-widget-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--grad-brand);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  margin: 4px auto 12px;
+  animation: floatSmall 3s ease-in-out infinite;
+}
+.side-widget-icon svg { width: 22px; height: 22px; }
+.side-widget-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.side-widget-btn {
+  display: inline-block;
+  width: 100%;
+  background: var(--grad-brand);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-brand);
+  transition: transform 0.3s var(--ease);
+}
+.side-widget-btn:hover { transform: translateY(-2px); }
+
+@media (max-width: 720px) {
+  .side-widget { width: 168px; padding: 18px 18px 18px 14px; }
+  .side-widget-text { font-size: 14px; }
+}

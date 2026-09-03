@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
   const topbar = document.getElementById("topbar");
   const backToTop = document.getElementById("backToTop");
+  const parallaxWrappers = document.querySelectorAll(".hero-blobs");
   const onScroll = () => {
     if (window.scrollY > 40) {
       navbar.classList.add("scrolled");
@@ -40,6 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (backToTop) {
       if (window.scrollY > 600) backToTop.classList.add("visible");
       else backToTop.classList.remove("visible");
+    }
+    if (parallaxWrappers.length) {
+      const y = window.scrollY;
+      parallaxWrappers.forEach((wrap, i) => {
+        const speed = i % 2 === 0 ? 0.1 : -0.08;
+        wrap.style.transform = `translateY(${y * speed}px)`;
+      });
     }
   };
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -205,5 +213,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
       window.open(`https://wa.me/919897286952?text=${text}`, "_blank");
     });
+  }
+
+  // ---- Side slide-in widget ----
+  const sideWidget = document.getElementById("sideWidget");
+  const sideWidgetClose = document.getElementById("sideWidgetClose");
+  if (sideWidget) {
+    const showTimer = setTimeout(() => {
+      sideWidget.classList.add("show");
+    }, 2500);
+
+    if (sideWidgetClose) {
+      sideWidgetClose.addEventListener("click", () => {
+        clearTimeout(showTimer);
+        sideWidget.classList.remove("show");
+      });
+    }
+
+    // auto-hide after a while so it doesn't linger forever
+    setTimeout(() => {
+      sideWidget.classList.remove("show");
+    }, 14000);
   }
 });
