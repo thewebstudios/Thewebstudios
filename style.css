@@ -831,86 +831,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================================
-   Stacked showcase — cards slide in and settle into a stack
-   ============================================================ */
-.stack-showcase-section { background: var(--bg-soft); overflow: hidden; }
-.stack-showcase {
-  position: relative;
-  max-width: 560px;
-  height: 320px;
-  margin: 60px auto 0;
-}
-.stack-card {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 78%;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-md);
-  opacity: 0;
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-}
-.stack-card-bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 16px;
-  background: var(--bg-soft);
-  border-bottom: 1px solid var(--line);
-}
-.stack-card-bar span { width: 8px; height: 8px; border-radius: 50%; }
-.stack-card-bar span:nth-child(1) { background: #ff5f57; }
-.stack-card-bar span:nth-child(2) { background: #febc2e; }
-.stack-card-bar span:nth-child(3) { background: #28c840; }
-.stack-card-body { padding: 30px 26px 34px; }
-.stack-card-line { height: 12px; border-radius: 6px; background: rgba(255,255,255,0.55); margin-bottom: 12px; }
-.stack-card-line.w1 { width: 75%; }
-.stack-card-line.w2 { width: 50%; }
-.stack-card-btn { width: 90px; height: 26px; border-radius: 100px; margin-top: 16px; }
-
-.stack-card-float { animation: floatSmall 4.5s ease-in-out infinite; }
-.stack-card.card-1 .stack-card-float { animation-delay: 0s; }
-.stack-card.card-2 .stack-card-float { animation-delay: -1.5s; }
-.stack-card.card-3 .stack-card-float { animation-delay: -3s; }
-
-.mock-nav-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
-.mock-nav-dot { width: 10px; height: 10px; border-radius: 50%; }
-.mock-nav-row span { width: 22px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.3); }
-
-.mock-photo { margin-top: 16px; border-radius: 10px; overflow: hidden; }
-.mock-photo-dark { background: rgba(255,255,255,0.06); }
-.mock-photo svg { width: 100%; height: 70px; display: block; }
-
-.mock-grid { display: flex; gap: 10px; margin-top: 16px; }
-.mock-grid-item { flex: 1; border-radius: 8px; overflow: hidden; }
-.mock-grid-item svg { width: 100%; height: 44px; display: block; }
-
-.mock-stats { display: flex; gap: 14px; margin-top: 18px; margin-bottom: 4px; }
-.mock-stat { flex: 1; text-align: center; background: rgba(255,255,255,0.12); border-radius: 10px; padding: 10px 4px; }
-.mock-stat-num { display: block; font-family: var(--font-display); font-weight: 800; font-size: 17px; color: #fff; }
-.mock-stat-label { display: block; font-size: 10px; color: rgba(255,255,255,0.7); margin-top: 2px; }
-
-/* Off-screen entrance positions */
-.stack-card.card-1 { transform: translate(-180%, -50%) rotate(-14deg); z-index: 1; }
-.stack-card.card-2 { transform: translate(-50%, 120%) rotate(10deg); z-index: 2; }
-.stack-card.card-3 { transform: translate(80%, -50%) rotate(12deg); z-index: 3; }
-
-/* Final resting stacked positions */
-.stack-card.card-1.is-visible { opacity: 1; transform: translate(-68%, -60%) rotate(-7deg); }
-.stack-card.card-2.is-visible { opacity: 1; transform: translate(-50%, -42%) rotate(2deg); }
-.stack-card.card-3.is-visible { opacity: 1; transform: translate(-32%, -55%) rotate(6deg); }
-
-@media (max-width: 640px) {
-  .stack-showcase { height: 280px; max-width: 340px; }
-  .stack-card { width: 82%; }
-  .stack-card.card-1.is-visible { transform: translate(-72%, -66%) rotate(-6deg); }
-  .stack-card.card-2.is-visible { transform: translate(-50%, -40%) rotate(2deg); }
-  .stack-card.card-3.is-visible { transform: translate(-28%, -58%) rotate(5deg); }
-}
-
-/* ============================================================
    Sub-page header (quote / work / project pages)
    ============================================================ */
 .page-header {
@@ -1060,73 +980,68 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================================
-   Stacked designs — fan-in animation
+   Stacked designs — auto-sliding style carousel
    ============================================================ */
-.stack-wrap {
-  position: relative;
-  max-width: 480px;
-  margin: 60px auto 0;
-  height: 320px;
-}
-.stack-card {
-  position: absolute;
-  top: 0; left: 50%;
-  width: 300px;
-  margin-left: -150px;
-  background: #fff;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-md);
+.stack-section { padding-bottom: 90px; }
+.design-slider-wrap {
   overflow: hidden;
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  margin-top: 20px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.stack-bar {
+.design-slider-track {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  animation: slideDesigns 30s linear infinite;
+}
+.design-slider-wrap:hover .design-slider-track { animation-play-state: paused; }
+
+.design-slide-card {
+  width: 260px;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  background: #fff;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.design-slide-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+.ds-bar {
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 10px 14px;
-  background: var(--bg-soft);
-  border-bottom: 1px solid var(--line);
+  background: rgba(0,0,0,0.04);
 }
-.stack-bar span { width: 8px; height: 8px; border-radius: 50%; }
-.stack-bar span:nth-child(1) { background: #ff5f57; }
-.stack-bar span:nth-child(2) { background: #febc2e; }
-.stack-bar span:nth-child(3) { background: #28c840; }
-.stack-body { padding: 24px 22px 30px; min-height: 190px; }
-.stack-line { height: 11px; border-radius: 6px; background: var(--line); margin-bottom: 12px; }
-.stack-block { height: 70px; border-radius: 10px; margin-top: 16px; }
-.stack-cta { width: 90px; height: 24px; border-radius: 100px; background: var(--indigo); margin: 14px 0 18px; }
-.stack-grid-mini { display: flex; gap: 8px; }
-.stack-grid-mini span { flex: 1; height: 40px; border-radius: 8px; background: var(--bg-soft-2); }
+.ds-bar span { width: 7px; height: 7px; border-radius: 50%; background: rgba(0,0,0,0.15); }
+.ds-body { padding: 20px 20px 24px; position: relative; min-height: 168px; }
+.ds-nav { display: flex; align-items: center; gap: 7px; margin-bottom: 16px; }
+.ds-dot { width: 9px; height: 9px; border-radius: 50%; }
+.ds-nav span { width: 20px; height: 5px; border-radius: 3px; background: rgba(0,0,0,0.12); }
+.ds-heading { font-family: var(--font-display); font-weight: 800; font-size: 17px; margin-bottom: 8px; }
+.ds-line { height: 8px; border-radius: 4px; width: 70%; margin-bottom: 14px; }
+.ds-cta { width: 78px; height: 22px; border-radius: 100px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+.ds-icon-circle {
+  position: absolute;
+  bottom: 18px; right: 18px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+.ds-icon-circle svg { width: 18px; height: 18px; }
+.ds-scene { width: 100%; height: 60px; display: block; margin-top: 14px; border-radius: 8px; }
 
-/* Converged starting state before reveal */
-.stack-card.reveal {
-  opacity: 0;
-  transform: translateY(50px) scale(0.9) rotate(0deg);
+@keyframes slideDesigns {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
-/* Fanned resting state once visible — specificity overrides generic .reveal.is-visible rule */
-.stack-card.reveal.is-visible.card-1 {
-  opacity: 1;
-  transform: translateY(6px) scale(0.94) rotate(-9deg) translateX(-58px);
-  z-index: 1;
-}
-.stack-card.reveal.is-visible.card-2 {
-  opacity: 1;
-  transform: translateY(0) scale(1.03) rotate(0deg);
-  z-index: 3;
-}
-.stack-card.reveal.is-visible.card-3 {
-  opacity: 1;
-  transform: translateY(6px) scale(0.94) rotate(9deg) translateX(58px);
-  z-index: 1;
-}
-.stack-card:hover { z-index: 4 !important; box-shadow: var(--shadow-brand); }
 
-@media (max-width: 640px) {
-  .stack-wrap { height: 280px; max-width: 300px; }
-  .stack-card { width: 240px; margin-left: -120px; }
-  .stack-card.reveal.is-visible.card-1 { transform: translateY(6px) scale(0.92) rotate(-7deg) translateX(-30px); }
-  .stack-card.reveal.is-visible.card-3 { transform: translateY(6px) scale(0.92) rotate(7deg) translateX(30px); }
+@media (max-width: 560px) {
+  .design-slide-card { width: 220px; }
 }
 .brand-reveal-section {
   position: relative;
