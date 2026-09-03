@@ -166,6 +166,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: inline-block;
 }
 
+.gallery-section .section-head .eyebrow {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  gap: 12px;
+  color: var(--indigo);
+}
+.gallery-section .section-head .eyebrow::before {
+  width: 34px;
+  height: 3px;
+}
+
 .section-head {
   max-width: 620px;
   margin-bottom: 56px;
