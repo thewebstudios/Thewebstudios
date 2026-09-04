@@ -215,6 +215,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ---- Shuffle deck (tap to cycle through design styles) ----
+  const shuffleDeck = document.getElementById("shuffleDeck");
+  if (shuffleDeck) {
+    const layoutDeck = () => {
+      const cards = Array.from(shuffleDeck.children);
+      const total = cards.length;
+      cards.forEach((card, i) => {
+        card.style.zIndex = total - i;
+        card.style.opacity = i < 3 ? "1" : "0";
+        const rotate = i === 0 ? 0 : (i % 2 === 0 ? 3 : -3);
+        card.style.transform = `translateY(${i * 10}px) scale(${1 - i * 0.05}) rotate(${rotate}deg)`;
+        card.style.pointerEvents = i === 0 ? "auto" : "none";
+      });
+    };
+    layoutDeck();
+
+    shuffleDeck.addEventListener("click", () => {
+      const front = shuffleDeck.firstElementChild;
+      if (!front) return;
+      front.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+      front.style.transform = "translateX(150%) rotate(20deg)";
+      front.style.opacity = "0";
+      setTimeout(() => {
+        shuffleDeck.appendChild(front);
+        front.style.transition = "none";
+        layoutDeck();
+        void front.offsetWidth;
+        front.style.transition = "";
+      }, 480);
+    });
+  }
+
   // ---- Side slide-in widget (home page only, shows once ever) ----
   const sideWidget = document.getElementById("sideWidget");
   const sideWidgetClose = document.getElementById("sideWidgetClose");
