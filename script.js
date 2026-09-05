@@ -134,13 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const type = params.get("type") || "business";
     const projects = {
-      restaurant: { title: "Restaurant Website", desc: "A digital menu and ordering site built to make it effortless for diners to browse, book a table, and reach you on WhatsApp.", industry: "Food & Beverage", feature: "Digital Menu + Booking" },
-      realestate: { title: "Real Estate Website", desc: "A property listing site designed to showcase homes with photos, filters, and a fast enquiry path for interested buyers.", industry: "Real Estate", feature: "Listings + Filters" },
-      fashion: { title: "Fashion Store Website", desc: "An online fashion store with a clean product catalogue, cart, and checkout built to convert browsers into buyers.", industry: "Retail / Fashion", feature: "Cart + Checkout" },
-      clinic: { title: "Clinic Website", desc: "A trust-building website for a clinic, with doctor profiles, services, and simple appointment enquiries.", industry: "Healthcare", feature: "Appointment Enquiries" },
-      salon: { title: "Salon & Spa Website", desc: "A booking-friendly site with a service menu, gallery, and one-tap WhatsApp booking for walk-ins and appointments.", industry: "Beauty & Wellness", feature: "WhatsApp Booking" },
-      gym: { title: "Gym & Fitness Website", desc: "A membership-focused website with plans, class schedules, and a simple trial enquiry form.", industry: "Fitness", feature: "Membership Plans" },
-      business: { title: "Business Website", desc: "A professional, fast-loading website built to represent your business online and turn visitors into enquiries.", industry: "General Business", feature: "Custom Design" }
+      restaurant: { title: "Restaurant Website", desc: "A digital menu and ordering site built to make it effortless for diners to browse, book a table, and reach you on WhatsApp.", industry: "Food & Beverage", feature: "Digital Menu + Booking", color: "#c14a2b" },
+      realestate: { title: "Real Estate Website", desc: "A property listing site designed to showcase homes with photos, filters, and a fast enquiry path for interested buyers.", industry: "Real Estate", feature: "Listings + Filters", color: "#6d33c9" },
+      fashion: { title: "Fashion Store Website", desc: "An online fashion store with a clean product catalogue, cart, and checkout built to convert browsers into buyers.", industry: "Retail / Fashion", feature: "Cart + Checkout", color: "#1f7a4d" },
+      clinic: { title: "Clinic Website", desc: "A trust-building website for a clinic, with doctor profiles, services, and simple appointment enquiries.", industry: "Healthcare", feature: "Appointment Enquiries", color: "#1d6fd6" },
+      salon: { title: "Salon & Spa Website", desc: "A booking-friendly site with a service menu, gallery, and one-tap WhatsApp booking for walk-ins and appointments.", industry: "Beauty & Wellness", feature: "WhatsApp Booking", color: "#c23b7a" },
+      gym: { title: "Gym & Fitness Website", desc: "A membership-focused website with plans, class schedules, and a simple trial enquiry form.", industry: "Fitness", feature: "Membership Plans", color: "#b8860b" },
+      business: { title: "Business Website", desc: "A professional, fast-loading website built to represent your business online and turn visitors into enquiries.", industry: "General Business", feature: "Custom Design", color: "#4c2a91" }
     };
     const data = projects[type] || projects.business;
     projectTitleEl.textContent = data.title;
@@ -152,6 +152,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (indEl) indEl.textContent = data.industry;
     const featEl = document.getElementById("projectFeature");
     if (featEl) featEl.textContent = data.feature;
+
+    // Per-industry accent theme
+    const headerEl = document.getElementById("projectPageHeader");
+    if (headerEl) {
+      headerEl.style.backgroundImage = `linear-gradient(150deg, #0d0b2e 0%, #241a5e 40%, ${data.color} 100%)`;
+    }
+    const dotEl = document.getElementById("projectDot");
+    if (dotEl) dotEl.style.background = data.color;
+    const ctaEl = document.getElementById("projectCta");
+    if (ctaEl) ctaEl.style.background = data.color;
   }
 
   // ---- Two-step quote form navigation ----
