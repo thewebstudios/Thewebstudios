@@ -1,82 +1,73 @@
-# TheWebStudios — Agency Website (Flat, Multi-Page Version)
+# TheWebStudios — Agency Portfolio Website
 
-Flat, no-folder structure — every file sits directly in the same place.
-Just upload every file below as-is.
+A premium, minimal, mobile-first agency portfolio website. This showcases
+website templates/designs that TheWebStudios can build for client
+businesses (it is not a website for one specific business).
 
-## Files to upload (all of them, no folders)
+## Files (flat structure, no folders — upload all as-is)
 
 ```
-index.html      (home page)
+index.html      (main one-page agency site: hero, templates, pricing, FAQ, contact...)
 work.html       (Examples / portfolio page)
-project.html    (project case-study page, opened from Examples)
-pricing.html    (Pricing page)
-quote.html      (Get a Quote / enquiry form page — 2-step form)
+project.html    (per-template "Live Preview" detail page)
+pricing.html    (standalone pricing page)
+quote.html      (Get a Quote / enquiry form page)
 style.css
 script.js
 logo.png
 favicon.svg
+hero-bg.mp4          (currently unused — kept in case you want a video hero later)
+hero-bg-poster.jpg   (currently unused)
 README.md
 ```
 
+## Homepage sections (index.html)
+
+1. Navbar — Home / Templates / Services / Pricing / About / Contact, sticky, mobile hamburger
+2. Hero — headline, subheading, two CTAs, browser mockup visual
+3. Trust stats bar
+4. Template showcase — filterable by category (All, Real Estate, Restaurant,
+   Hotel, Clinic, Education, Fashion, Electronics, Salon, Gym, Services).
+   Each card has "Live Preview" (opens `project.html?type=...`) and
+   "Get This Website" (opens `quote.html`).
+5. About / Why TheWebStudios — 6 reason cards
+6. How It Works — 4 steps
+7. Services list
+8. Pricing — Starter / Business / Premium, each with a "Get Quote" button
+9. FAQ — click to expand/collapse
+10. Final CTA banner
+11. Contact form (Name, Business Name, Category, Phone/WhatsApp, project
+    details) → opens WhatsApp with everything filled in, plus a direct
+    WhatsApp button
+12. Footer — quick links, services, contact, socials
+
+## Editing the template list
+
+Open `script.js` and find the `templates` array (search for
+`Template showcase (render + filter)`). Each entry looks like:
+
+```js
+{ name: "Estate Pro", category: "realestate", categoryLabel: "Real Estate",
+  desc: "Property listings with photos, filters...", icon: '<path d="..."/>' }
+```
+
+Add, remove, or edit entries here — the grid and filters update automatically.
+`category` must match one of the filter button values (`data-filter="..."`
+in `index.html`) for the filter buttons to work with it.
+
+To make "Live Preview" show custom text for a new category, add a matching
+entry to the `projects` object in `script.js` (search for
+`Project page dynamic content`).
+
 ## How to upload on GitHub
 
-1. Open your repository on GitHub.
-2. Click **Add file → Upload files**.
-3. Select / drag in **all files above** at once.
-4. Scroll down, click **Commit changes**.
-
-## Turn on GitHub Pages
-
-1. Go to **Settings → Pages** in your repo.
-2. Source: **Deploy from a branch**, Branch: **main**, folder: **/ (root)**. Save.
-3. Wait 1–2 minutes, then visit the link GitHub shows you.
-
-## How the pages connect
-
-- `index.html` → "Get Started" opens WhatsApp directly. "See Our Work" opens
-  `work.html`. "View Pricing" opens `pricing.html`. "Get a Quote" (nav) opens
-  `quote.html`.
-- `work.html` → each project card's arrow button opens `project.html?type=...`
-  (restaurant, realestate, fashion, clinic, salon, gym).
-- `project.html` → shows an animated step-by-step process, plus a Back button.
-- `pricing.html` → the 3 pricing plans, plus a Back button.
-- `quote.html` → a 2-step enquiry form: Step 1 (name + phone), Step 2
-  (project type + message), then opens WhatsApp with everything filled in.
-
-Every sub-page (`work.html`, `project.html`, `pricing.html`, `quote.html`)
-has a **Back** button at the top-left that returns to whichever page you
-came from.
-
-## Adding live website preview screenshots (work.html)
-
-The Examples page has an auto-sliding strip of 5 placeholder website
-previews. To add a real screenshot, upload an image with the exact matching
-filename next to `work.html`:
-
-```
-example-01.jpg ... example-05.jpg   → 5 sliding preview slots
-```
-
-Recommended: landscape screenshots (16:10), at least 1200×750px, `.jpg`.
-
-## Adding gallery photos
-
-The homepage has a **Gallery** section (Mathura / Vrindavan / Agra) with
-empty placeholder slots. To add a real photo, just upload an image with the
-exact matching filename next to `index.html`:
-
-```
-design-01.jpg ... design-08.jpg   → Mathura (8 slots)
-design-09.jpg ... design-12.jpg   → Vrindavan (4 slots)
-design-13.jpg ... design-16.jpg   → Agra (4 slots)
-```
-
-No code changes needed — as soon as a file with that exact name is uploaded,
-it replaces the blank placeholder automatically. Recommended: square images
-(1:1), at least 600×600px, saved as `.jpg`.
+1. Open your repository → **Add file → Upload files**.
+2. Drag in all files listed above at once.
+3. Commit changes.
+4. Settings → Pages → Source: Deploy from branch → `main` → `/ (root)` → Save.
 
 ## Updating content later
 
-- WhatsApp number: search `919897286952` across all files and replace.
-- Email placeholder: `thewebstudios69@gmail.com`.
+- WhatsApp number: search `919897286952` across files and replace.
+- Email: `thewebstudios69@gmail.com`.
 - Logo: replace `logo.png` with a new image of the same filename.
