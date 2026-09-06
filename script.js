@@ -140,14 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
       clinic: { title: "Clinic Website", desc: "A trust-building website for a clinic, with doctor profiles, services, and simple appointment enquiries.", industry: "Healthcare", feature: "Appointment Enquiries", color: "#1d6fd6" },
       salon: { title: "Salon & Spa Website", desc: "A booking-friendly site with a service menu, gallery, and one-tap WhatsApp booking for walk-ins and appointments.", industry: "Beauty & Wellness", feature: "WhatsApp Booking", color: "#c23b7a" },
       gym: { title: "Gym & Fitness Website", desc: "A membership-focused website with plans, class schedules, and a simple trial enquiry form.", industry: "Fitness", feature: "Membership Plans", color: "#b8860b" },
-      hotel: { title: "Hotel Website", desc: "A booking-friendly hotel site with room showcases, amenities, and a simple reservation enquiry flow.", industry: "Hospitality", feature: "Room Showcase + Booking", color: "#8a6d1f" },
-      education: { title: "Education Website", desc: "A school or institute website with course listings, admissions info, and a clear enquiry path for parents.", industry: "Education", feature: "Admissions + Courses", color: "#1d4e89" },
-      electronics: { title: "Electronics Store Website", desc: "A product-first storefront for an electronics or mobile retailer, with specs, categories, and enquiry buttons.", industry: "Retail / Electronics", feature: "Product Grid + Specs", color: "#3a3f8f" },
-      services: { title: "Services Website", desc: "A clean, trust-building layout for consultants and service providers to list offerings and capture enquiries.", industry: "Professional Services", feature: "Service Listing + Enquiry", color: "#2e5c4e" },
-      hotel: { title: "Hotel Website", desc: "A room-showcase site with amenities, offers, and a straightforward booking enquiry flow.", industry: "Hospitality", feature: "Booking Enquiries", color: "#8a6d1f" },
-      education: { title: "Education Website", desc: "A course and admissions site for schools and institutes, built to make enquiries easy for parents and students.", industry: "Education", feature: "Admissions Enquiries", color: "#2a4d8f" },
-      electronics: { title: "Electronics Store Website", desc: "A product-grid storefront with categories and specifications, built for an electronics or mobile retailer.", industry: "Retail / Electronics", feature: "Product Catalogue", color: "#0e7a8f" },
-      services: { title: "Services Website", desc: "A clean, trust-building website for consultants and service businesses to list what they offer and get enquiries.", industry: "Professional Services", feature: "Service Listings", color: "#3f4756" },
       business: { title: "Business Website", desc: "A professional, fast-loading website built to represent your business online and turn visitors into enquiries.", industry: "General Business", feature: "Custom Design", color: "#4c2a91" }
     };
     const data = projects[type] || projects.business;
@@ -299,85 +291,5 @@ document.addEventListener("DOMContentLoaded", () => {
         sideWidget.classList.remove("show");
       }, 14000);
     }
-  }
-
-  // ---- Template showcase (render + filter) ----
-  const templateGrid = document.getElementById("templateGrid");
-  if (templateGrid) {
-    const templates = [
-      { name: "Estate Pro", category: "realestate", categoryLabel: "Real Estate", desc: "Property listings with photos, filters, and a fast enquiry path for buyers.", icon: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/>' },
-      { name: "Bistro Menu", category: "restaurant", categoryLabel: "Restaurant", desc: "Digital menu with online table booking and WhatsApp ordering.", icon: '<path d="M6 2v7a2 2 0 0 0 4 0V2M8 9v13M18 2v13a2 2 0 0 1-2 2h-2"/><path d="M18 2v7"/>' },
-      { name: "Luxe Stay", category: "hotel", categoryLabel: "Hotel", desc: "Room showcase, amenities, and a simple booking enquiry flow.", icon: '<path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/>' },
-      { name: "MediCare Plus", category: "clinic", categoryLabel: "Clinic", desc: "Doctor profiles, services, and easy appointment enquiries.", icon: '<path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><path d="M12 11v6M9 14h6"/>' },
-      { name: "EduBright", category: "education", categoryLabel: "Education", desc: "Course listings and admissions info for schools and institutes.", icon: '<path d="m2 8 10-5 10 5-10 5-10-5z"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/>' },
-      { name: "Fashion Edit", category: "fashion", categoryLabel: "Fashion", desc: "Product catalogue with cart, checkout, and order tracking.", icon: '<path d="M9 3h6l1 3 4 2-2 3 1 10H5l1-10-2-3 4-2z"/>' },
-      { name: "TechMart", category: "electronics", categoryLabel: "Electronics", desc: "Product grid and specs for an electronics or mobile retailer.", icon: '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M10 18h4"/>' },
-      { name: "Glow Studio", category: "salon", categoryLabel: "Salon", desc: "Service menu, gallery, and one-tap WhatsApp booking.", icon: '<path d="M6 5a3 3 0 1 0 3 3l9 9M6 19a3 3 0 1 0 3-3l9-9"/>' },
-      { name: "FitZone", category: "gym", categoryLabel: "Gym", desc: "Membership plans, class schedule, and a trial enquiry form.", icon: '<path d="M6 7v10M18 7v10M3 12h3M18 12h3M9 12h6"/>' },
-      { name: "ProServe", category: "services", categoryLabel: "Services", desc: "A clean layout for consultants to list what they offer.", icon: '<path d="M3 7h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>' }
-    ];
-
-    const renderTemplates = (filter) => {
-      const items = filter === "all" ? templates : templates.filter(t => t.category === filter);
-      templateGrid.innerHTML = items.map(t => `
-        <div class="ag-template-card">
-          <div class="ag-template-preview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${t.icon}</svg></div>
-          <div class="ag-template-body">
-            <span class="ag-template-category">${t.categoryLabel}</span>
-            <h3>${t.name}</h3>
-            <p>${t.desc}</p>
-            <div class="ag-template-actions">
-              <a href="project.html?type=${t.category}" class="ag-template-link">Live Preview</a>
-              <a href="quote.html" class="btn btn-primary">Get This Website</a>
-            </div>
-          </div>
-        </div>
-      `).join("");
-    };
-    renderTemplates("all");
-
-    const filterButtons = document.querySelectorAll(".ag-filter");
-    filterButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        filterButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderTemplates(btn.getAttribute("data-filter"));
-      });
-    });
-  }
-
-  // ---- FAQ accordion ----
-  const faqItems = document.querySelectorAll(".ag-faq-item");
-  faqItems.forEach(item => {
-    const q = item.querySelector(".ag-faq-q");
-    if (!q) return;
-    q.addEventListener("click", () => {
-      const isOpen = item.classList.contains("open");
-      faqItems.forEach(i => i.classList.remove("open"));
-      if (!isOpen) item.classList.add("open");
-    });
-  });
-
-  // ---- Agency contact form -> WhatsApp ----
-  const agencyForm = document.getElementById("agencyContactForm");
-  if (agencyForm) {
-    agencyForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("caName").value.trim();
-      const business = document.getElementById("caBusiness").value.trim();
-      const category = document.getElementById("caCategory").value;
-      const phone = document.getElementById("caPhone").value.trim();
-      const type = document.getElementById("caType").value.trim();
-
-      const text =
-        `Hi TheWebStudios, I'd like a website for my business.%0A%0A` +
-        `Name: ${encodeURIComponent(name)}%0A` +
-        `Business: ${encodeURIComponent(business)}%0A` +
-        `Category: ${encodeURIComponent(category)}%0A` +
-        `Phone: ${encodeURIComponent(phone)}%0A` +
-        `Details: ${encodeURIComponent(type)}`;
-
-      window.open(`https://wa.me/919897286952?text=${text}`, "_blank");
-    });
   }
 });
