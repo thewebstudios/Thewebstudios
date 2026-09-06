@@ -568,8 +568,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: center;
   padding: 0;
   overflow: hidden;
-  min-width: 200px;
-  height: 56px;
+  width: 96px;
+  height: 96px;
+  min-width: 96px;
+  border-radius: 50%;
 }
 .btn-book-call dotlottie-wc {
   width: 100% !important;
