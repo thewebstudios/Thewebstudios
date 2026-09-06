@@ -635,6 +635,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--ink);
 }
 .photo-card svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.photo-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+.photo-card.img-missing img { display: none; }
+.photo-card:not(.img-missing) img { display: block; }
+.photo-card:not(.img-missing) svg { display: none; }
 
 @media (max-width: 900px) {
   .hero-photo-row { grid-template-columns: 1fr; transform: translateY(40px); margin-bottom: -40px; gap: 16px; }
