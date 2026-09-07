@@ -1287,6 +1287,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+@media (max-width: 900px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .work-grid { grid-template-columns: 1fr; } }
+
 .work-card {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1296,13 +1299,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .work-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 .work-thumb {
-  height: 190px;
+  aspect-ratio: 16 / 10;
+  height: auto;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
+.work-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+.work-thumb:not(.img-missing) img { display: block; }
+.work-thumb:not(.img-missing) svg { display: none; }
 .work-thumb .tag {
   position: absolute;
   top: 14px; left: 14px;
@@ -1313,6 +1327,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 11.5px;
   font-weight: 600;
   color: var(--ink);
+  z-index: 2;
 }
 .work-thumb svg { width: 60%; opacity: 0.9; transition: transform .5s var(--ease); }
 .work-card:hover .work-thumb svg { transform: scale(1.06); }
@@ -1327,6 +1342,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-sm);
+  z-index: 2;
   transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease);
   z-index: 2;
 }
