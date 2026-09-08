@@ -1316,7 +1316,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: none;
 }
 .work-thumb:not(.img-missing) img { display: block; }
-.work-thumb:not(.img-missing) svg { display: none; }
+.work-thumb:not(.img-missing) > svg { display: none; }
 .work-thumb .tag {
   position: absolute;
   top: 14px; left: 14px;
@@ -1346,7 +1346,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease);
   z-index: 2;
 }
-.work-arrow-btn svg { width: 18px; height: 18px; opacity: 1; }
+.work-arrow-btn svg { width: 18px !important; height: 18px !important; opacity: 1 !important; display: block !important; }
 .work-arrow-btn:hover, .work-card:hover .work-arrow-btn {
   background: var(--grad-brand);
   color: #fff;
