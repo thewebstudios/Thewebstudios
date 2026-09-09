@@ -215,6 +215,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .reveal-delay-3 { transition-delay: 0.24s; }
 .reveal-delay-4 { transition-delay: 0.32s; }
 
+.reveal.reveal-left { transform: translateX(-50px); }
+.reveal.reveal-right { transform: translateX(50px); }
+.reveal.reveal-left.is-visible,
+.reveal.reveal-right.is-visible { transform: translateX(0); }
+
 /* ============================================================
    Buttons
    ============================================================ */
