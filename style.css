@@ -334,13 +334,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed;
   top: 38px; left: 0; right: 0;
   z-index: 500;
-  padding: 18px 0;
+  padding: 12px 0;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 var(--line);
   transition: padding 0.35s var(--ease), box-shadow 0.35s var(--ease), top 0.35s var(--ease);
 }
-.navbar.scrolled { padding: 12px 0; box-shadow: 0 1px 0 var(--line), 0 12px 30px rgba(18,18,26,0.05); }
+.navbar.scrolled { padding: 10px 0; box-shadow: 0 1px 0 var(--line), 0 12px 30px rgba(18,18,26,0.05); }
 @media (max-width: 560px) {
   .navbar { top: 0; }
 }
@@ -389,7 +389,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 16px;
   box-shadow: var(--shadow-brand);
 }
-.logo img.mark-img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-brand); flex-shrink: 0; }
+.logo img.mark-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-brand); flex-shrink: 0; }
 
 .nav-links {
   display: flex;
