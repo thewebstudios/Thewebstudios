@@ -358,7 +358,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   animation: logoDropIn 0.9s var(--ease) 0.15s both;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(18px, 5vw, 25px);
+  font-size: clamp(22px, 6vw, 30px);
   letter-spacing: 0.01em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -389,7 +389,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 16px;
   box-shadow: var(--shadow-brand);
 }
-.logo img.mark-img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-brand); flex-shrink: 0; }
+.logo img.mark-img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow-brand); flex-shrink: 0; }
 
 .nav-links {
   display: flex;
