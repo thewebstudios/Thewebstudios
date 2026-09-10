@@ -2,16 +2,41 @@
 // TheWebStudios — Interactions
 // ============================================================
 
-// ---- Page loader ----
-window.addEventListener("load", () => {
+// ---- Page transition loader (shows only between internal page navigations) ----
+(function () {
   const loader = document.getElementById("pageLoader");
-  if (loader) {
-    setTimeout(() => {
-      loader.classList.add("loader-hide");
-      setTimeout(() => loader.remove(), 600);
-    }, 500);
+  if (!loader) return;
+
+  const cameFromInternalNav = sessionStorage.getItem("tws_nav") === "1";
+
+  if (cameFromInternalNav) {
+    sessionStorage.removeItem("tws_nav");
+    loader.style.display = "flex";
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        loader.classList.add("loader-hide");
+        setTimeout(() => loader.remove(), 500);
+      }, 350);
+    });
   }
-});
+
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const href = link.getAttribute("href");
+    if (!href) return;
+    if (link.target === "_blank") return;
+    if (href.startsWith("#")) return;
+    if (href.startsWith("tel:") || href.startsWith("mailto:") || href.startsWith("javascript:")) return;
+    if (href.includes("wa.me") || href.includes("://")) return;
+
+    e.preventDefault();
+    loader.style.display = "flex";
+    loader.classList.remove("loader-hide");
+    sessionStorage.setItem("tws_nav", "1");
+    setTimeout(() => { window.location.href = href; }, 280);
+  });
+})();
 
 document.addEventListener("DOMContentLoaded", () => {
   // Footer year

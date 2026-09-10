@@ -12,13 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="style.css" />
+<script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
 </head>
 <body>
 
 <!-- ============ PAGE LOADER ============ -->
-<div class="page-loader" id="pageLoader">
-  <img src="logo.png" alt="Loading" class="loader-logo" />
-  <span class="loader-text">Loading<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></span>
+<div class="page-loader" id="pageLoader" style="display:none;">
+  <dotlottie-wc src="page-transition.json" autoplay loop style="width:130px;height:130px;"></dotlottie-wc>
 </div>
 
 <!-- ============ TOP BAR ============ -->
